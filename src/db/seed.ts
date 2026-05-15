@@ -118,7 +118,7 @@ const twoSumSteps: Step[] = [
     sub:    'Select all that apply.',
     multi:  true,
     options: [
-      { text: 'Can the array contain negative numbers?',     correct: true  },
+      { text: 'Can the array contain negative numbers?',     correct: false },
       { text: 'Is there always exactly one valid answer?',   correct: true  },
       { text: 'Can I use the same element twice?',           correct: true  },
       { text: 'Does the output order of indices matter?',    correct: false },
@@ -127,7 +127,7 @@ const twoSumSteps: Step[] = [
     ],
     feedback: {
       ok:  "Exactly. Knowing there's exactly one answer means you can return immediately on first match. Knowing you can't reuse elements prevents bugs with nums[i] + nums[i] = target.",
-      bad: "Output order and pre-sorting don't affect correctness here — the problem guarantees one answer and indices can be in any order.",
+      bad: "Negative numbers, output order, and pre-sorting don't affect correctness here — a hash map handles negatives the same as positives, the problem guarantees one answer, and indices can be in any order.",
     },
   },
   {
