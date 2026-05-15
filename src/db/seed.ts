@@ -9,6 +9,7 @@
  */
 
 import { drizzle } from 'drizzle-orm/postgres-js'
+import { sql } from 'drizzle-orm'
 import postgres from 'postgres'
 import { patterns, problems } from './schema'
 import type { Step, ProblemExample } from './schema'
@@ -632,11 +633,11 @@ async function seed() {
     .onConflictDoUpdate({
       target: problems.slug,
       set: {
-        statement:   problems.statement,
-        examples:    problems.examples,
-        steps:       problems.steps,
-        isPublished: problems.isPublished,
-        xpReward:    problems.xpReward,
+        statement:   sql`excluded.statement`,
+        examples:    sql`excluded.examples`,
+        steps:       sql`excluded.steps`,
+        isPublished: sql`excluded.is_published`,
+        xpReward:    sql`excluded.xp_reward`,
       },
     })
 
