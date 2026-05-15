@@ -313,8 +313,6 @@ export function MapView({ patterns, xp, streak }: Props) {
                   '--pshadow': `var(--c-${row.color}-shadow)`,
                 } as React.CSSProperties}
               >
-                {row.isCurrent && <div className="start-chip">Start</div>}
-
                 <button
                   className="node-btn"
                   aria-label={row.problem.title}
